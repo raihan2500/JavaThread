@@ -1,24 +1,6 @@
 package q4;
 
-import java.util.concurrent.Semaphore;
-
-class ResourcePool {
-    private final Semaphore semaphore;
-
-    public ResourcePool(int numberOfResources) {
-        semaphore = new Semaphore(numberOfResources);
-    }
-
-    public void acquire() throws InterruptedException {
-        semaphore.acquire();
-    }
-
-    public void release() {
-        semaphore.release();
-    }
-}
-
-public class Question4 {
+public class Solution {
     public static void main(String[] args) {
         final int numberOfResources = 5;
         final int numberOfThreads = 20;

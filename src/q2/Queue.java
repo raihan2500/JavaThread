@@ -2,7 +2,7 @@ package q2;
 
 import java.util.concurrent.locks.*;
 
-public class Question2 {
+public class Queue {
 
     private static class Node {
         int value;
@@ -19,7 +19,7 @@ public class Question2 {
     private final Lock lock = new ReentrantLock();
     private final Condition notEmpty = lock.newCondition();
 
-    public Question2() {
+    public Queue() {
         this.head = null;
         this.tail = null;
     }
@@ -64,19 +64,6 @@ public class Question2 {
             return head == null;
         } finally {
             lock.unlock();
-        }
-    }
-
-    public static void main(String[] args) {
-        Question2 queue = new Question2();
-        queue.enqueue(1);
-        queue.enqueue(2);
-        
-        try {
-            System.out.println(queue.dequeue());
-            System.out.println(queue.dequeue());
-        } catch (InterruptedException e) {
-            e.printStackTrace();
         }
     }
 }
